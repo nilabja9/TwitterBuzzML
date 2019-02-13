@@ -27,3 +27,28 @@ Regression Strategy:
 
 We begin by analyzing the dataset to see any missing values and to check whether all the features are numerical in order to run our machine learning models. When the data seems fine, we select GridSearchCV for evaluating the correct parameter for Linear Regression, Polynomial Regression, Ridge Regression, Lasso Regression, Linear Support Vector Regression, Support Vector Regression with Kernel trick and finally KNN Nearest Neighbor Regression. After our analysis of training and test scores of various models and also the cross validation scores, we decided that Lasso Regression was the best model to go with as its generalization was bit better than other models having the same training and test scores.
 We ran Lasso Regression on whole dataset, using GridSearchCV again to confirm the best parameter and found a decent fit. We examined the co-efficient values and many of them have been reduced to zero as per the Lasso properties. Overall, looking at the plot, this seems a proper fit.
+
+Further Analysis: Classification
+
+Once we have created individual models and seen the scores, not we will test ensembling, principal component analysis and deep learning.
+
+Ensemble models :
+
+It is observed that Soft voting gives overall higher accuracy scores. LinearSVC with Hard voting has the highest accuracy score within the Hard voting classifier of 96.33% and Logistic Regression with Soft voting has the highest accuracy score within the Soft voting classifier of 96.13%. Implemented KNeighborsClassifier and LogisticRegression with Bagging, LinearSVC and DTree Classifier with pasting & DTree Classifier LogisticRegression using Adaboost. GradientBoostingClassifier with max_depth=3 had good accuracy. The best Ensemble model is Decision Tree classifier with Adaboost with 100% Train accuracy and 96.36% test accuracy.
+
+PCA :
+
+Standard scaler is recommended for PCA hence used that for scale the original X data and then applied PCA on it. Ran then PCA model with 0.95 variance and got 15 reduced components. Ran all the models from Projects 2 on the reduced data after PCA. After comparing these results with those of previous project, we observed that the accuracy of the train accuracy improved slightly after performing KNN on the PCA reduced dataset. Also observed approx 1% increase in the accuracy after running Kernel SVM on the PCA reduced dataset. However, the test accuracy has reduced for other models like Logistic regression, Decision tree and Kernalized SVM after using PCA reduced dataset. The reduction in accuracy may be attributed to the fact that the underlying sampling data might have changed from Project 2 to Project 3 that is the 10% sample of Project 2 might be slightly different from that selected in Project 3. Best model after PCA is Kernal SVM.
+
+Deep learning:
+
+Implemented the The deep learning model having Objective Function/Loss Function of Binary cross-entropy Ran grid search on KerasClassifier and found the best parameter is batch_size of 20 and epochs of 50. Built a model on this and got the accuracy of 96.84%
+
+Further Analysis: Regression
+
+For ensemble modelling, like all the individual regression models, we have done MinMaxScaler and before PCA we have have used StandardScaler - the reason is we wanted to transform the data to zero mean and unit variance. After PCA decomposition, 77 features are reduced to 18 principal components.
+After the reduced data is fed into the models after PCA decomposition, from the results we can see that for Linear, Ridge and Lasso Regression the training and testing score are almost the same and all three are a fair fit. Now the reduction in accuracy may be attributed to the fact that the underlying sampling data might have changed from Project 2 to Project 3 - i.e. the 10% sample of Project 2 is slightly different from Project 3.
+The best model after application of PCA seems to be KNNRegressor which has the highest training and test accuracy. Defnitely after the application of PCA, the results of KNNRegressor are slightly better as Training score and Testing score are more closer.
+Among the Ensemble models, Adaboosting Decision Tree with maximum depth = 12 seems to be the best but it seems to be slightly overfitted due to the gap between training and testing score.
+The next best ensemble model is LinearSVR pasting due to closeness of Training and Test score.
+We tried to implement two Deep Learning models by arranging different node layers, but both of them gave a very high mean-square error, hence we have discarded the deep learning models from our consideration.
