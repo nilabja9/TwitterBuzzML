@@ -4,7 +4,7 @@ https://archive.ics.uci.edu/ml/datasets/Buzz+in+social+media+
 
 The Dataset has two parts - one which has been used for Classification and the other which has been used for regression. 
 The goal of this project is to mainly find out the optimum machine learning model or a ensemble of models 
-that can accurately classify a social media datapoint to be a buzz or not. The dataset has 77 features and over 1/2 million datapoints.
+that can accurately classify a social media data-point to be a buzz or not. The dataset has 77 features and over 1/2 million data points.
 
 Classification Summary and Findings:
 
@@ -25,7 +25,7 @@ Buzz predicted percentage = 19.46%
 
 Regression Strategy:
 
-We begin by analyzing the dataset to see any missing values and to check whether all the features are numerical in order to run our machine learning models. When the data seems fine, we select GridSearchCV for evaluating the correct parameter for Linear Regression, Polynomial Regression, Ridge Regression, Lasso Regression, Linear Support Vector Regression, Support Vector Regression with Kernel trick and finally KNN Nearest Neighbor Regression. After our analysis of training and test scores of various models and also the cross validation scores, we decided that Lasso Regression was the best model to go with as its generalization was bit better than other models having the same training and test scores.
+We begin by analysing the dataset to see any missing values and to check whether all the features are numerical in order to run our machine learning models. When the data seems fine, we select GridSearchCV for evaluating the correct parameter for Linear Regression, Polynomial Regression, Ridge Regression, Lasso Regression, Linear Support Vector Regression, Support Vector Regression with Kernel trick and finally KNN Nearest Neighbor Regression. After our analysis of training and test scores of various models and also the cross validation scores, we decided that Lasso Regression was the best model to go with as its generalization was bit better than other models having the same training and test scores.
 We ran Lasso Regression on whole dataset, using GridSearchCV again to confirm the best parameter and found a decent fit. We examined the co-efficient values and many of them have been reduced to zero as per the Lasso properties. Overall, looking at the plot, this seems a proper fit.
 
 Further Analysis: Classification
