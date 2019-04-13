@@ -1,3 +1,5 @@
+# Abstract
+
 This project involves the analysis of subset of the UCI Dataset for Social Media Buzz: - 
 [ Prédictions d’activité dans les réseaux sociaux en ligne (F. Kawala, A. Douzal-Chouakria, E. Gaussier, E. Dimert), In Actes de la Conférence sur les Modèles et l′Analyse des Réseaux : Approches Mathématiques et Informatique (MARAMI), pp. 16, 2013.]
 https://archive.ics.uci.edu/ml/datasets/Buzz+in+social+media+ 
@@ -6,16 +8,20 @@ The Dataset has two parts - one which has been used for Classification and the o
 The goal of this project is to mainly find out the optimum machine learning model or a ensemble of models 
 that can accurately classify a social media data-point to be a buzz or not. The dataset has 77 features and over 1/2 million data points.
 
-Classification Summary and Findings:
+## Classification Summary and Findings:
 
-Preprocessing: 
+### Preprocessing: 
 
 • Checking missing values – no missing values found 
 • Renamed the column names based on the feature labels 
 • Cleaned the buzz column to convert it to binary 
 • Generated X and y – kept all the features in X dataset and kept the buzz column in y 
 
-Classification Strategy: 
+### Classification Strategy: 
+
+As the dataset is imbalanced, we selected AUC has the appropriate evaluation strategy. Each classification model is individually executed using Grid Search and Cross Validation to find the best parameters. And here are the results:
+
+
 
 As the dataset is imbalanced, we selected AUC has the appropriate evaluation strategy
 Best parameters for each model: KNN - n_neighbors: 20 Logistic Regression - C: 100 Linear SVC - C: 10 SVM RBF kernel - C': 100, 'gamma': 0.1 Decision Tree - Max_depth – 3
